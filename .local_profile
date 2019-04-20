@@ -1,0 +1,183 @@
+#!/bin/bash
+#
+# DESCRIPTION:
+#
+#   Set the bash prompt according to:
+#    * the active virtualenv
+#    * the branch/status of the current git repository
+#    * the return value of the previous command
+#    * the fact you just came from Windows and are used to having newlines in
+#      your prompts.
+#
+# USAGE:
+#
+#   1. Save this file as ~/.bash_prompt
+#   2. Add the following line to the end of your ~/.bashrc or ~/.bash_profile:
+#        . ~/.bash_prompt
+#
+# LINEAGE:
+#
+#   Based on work by woods
+#
+#   https://gist.github.com/31967
+
+# The various escape codes that we can use to color our prompt.
+TXTBLK='\e[0;30m' # Black - Regular
+TXTRED='\e[0;31m' # Red
+TXTGRN='\e[0;32m' # Green
+TXTYLW='\e[0;33m' # Yellow
+TXTBLU='\e[0;34m' # Blue
+TXTPUR='\e[0;35m' # Purple
+TXTCYN='\e[0;36m' # Cyan
+TXTWHT='\e[0;37m' # White
+BLDBLK='\e[1;30m' # Black - Bold
+BLDRED='\e[1;31m' # Red
+BLDGRN='\e[1;32m' # Green
+BLDYLW='\e[1;33m' # Yellow
+BLDBLU='\e[1;34m' # Blue
+BLDPUR='\e[1;35m' # Purple
+BLDCYN='\e[1;36m' # Cyan
+BLDWHT='\e[1;37m' # White
+UNKBLK='\e[4;30m' # Black - Underline
+UNDRED='\e[4;31m' # Red
+UNDGRN='\e[4;32m' # Green
+UNDYLW='\e[4;33m' # Yellow
+UNDBLU='\e[4;34m' # Blue
+UNDPUR='\e[4;35m' # Purple
+UNDCYN='\e[4;36m' # Cyan
+UNDWHT='\e[4;37m' # White
+BAKBLK='\e[40m'   # Black - Background
+BAKRED='\e[41m'   # Red
+BAKGRN='\e[42m'   # Green
+BAKYLW='\e[43m'   # Yellow
+BAKBLU='\e[44m'   # Blue
+BAKPUR='\e[45m'   # Purple
+BAKCYN='\e[46m'   # Cyan
+BAKWHT='\e[47m'   # White
+TXTRST='\e[0m'    # Text Reset
+
+if [ -z "$SERVERNAME" ]; then
+	SERVERNAME="${TXTBLU}\h${TXTRST}"
+fi
+
+USERNAME="${TXTRED}\u${TXTRST}"
+if [ "`id -u`" -eq 0 ]; then
+	USERNAME="${BAKRED}\u${TXTRST}"
+fi
+
+CURRPATH="${TXTGRN}\w${TXTRST}"
+SEP_L="${TXTWHT}[${TXTRST}"
+SEP_C="${TXTWHT}:${TXTRST}"
+SEP_R="${TXTWHT}]${TXTRST}"
+
+# Detect whether the current directory is a git repository.
+function is_git_repository {
+  git branch > /dev/null 2>&1
+}
+
+# Determine the branch/state information for this git repository.
+function set_git_branch {
+  # Capture the output of the "git status" command.
+  git_status="$(git status 2> /dev/null)"
+
+  # Set color based on clean/staged/dirty.
+  if [[ ${git_status} =~ "working directory clean" ]]; then
+    state="${TXTGRN}"
+  elif [[ ${git_status} =~ "Changes to be committed" ]]; then
+    state="${TXTYW}"
+  else
+    state="${TXTRED}"
+  fi
+
+  # Set arrow icon based on status against remote.
+  #remote_pattern="# Your branch is (.*) of"
+  remote_pattern="# Your branch is (ahead|behind)+ "
+  if [[ ${git_status} =~ ${remote_pattern} ]]; then
+    if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
+      remote="↑"
+    else
+      remote="↓"
+    fi
+  else
+    remote=""
+  fi
+  diverge_pattern="# Your branch and (.*) have diverged"
+  if [[ ${git_status} =~ ${diverge_pattern} ]]; then
+    remote="↕"
+  fi
+
+  # Get the name of the branch.
+  branch="`git branch 2> /dev/null | grep "^\*" | sed -E "s/\* /(/g" | xargs -I "{}" echo {}\)`"
+
+  # Set the final branch string.
+  BRANCH="${state}${branch}${remote}${TXTRST} "
+}
+
+PROMPT_SYMBOL="\$"
+if [ "`id -u`" -eq 0 ]; then
+  PROMPT_SYMBOL="#"
+fi
+
+# Return the prompt symbol to use, colorized based on the return value of the
+# previous command.
+function set_prompt_symbol () {
+  if test $1 -eq 0 ; then
+      PROMPT_SYMBOL="\$"
+  else
+      PROMPT_SYMBOL="${LIGHT_RED}\$${TXTRST}"
+  fi
+}
+
+# Determine active Python virtualenv details.
+function set_virtualenv () {
+  PYTHON_VIRTUALENV=""
+  if test -n "$VIRTUAL_ENV" ; then
+	  PYTHON_VIRTUALENV="${BAKWHT}(`basename \"$VIRTUAL_ENV\"`)${TXTRST}"
+  fi
+}
+
+function set_status () {
+	STATUS=""
+	if test $1 -ne 0 ; then
+		STATUS="${TXTRED}[\$?]${TXTRST}"
+	fi
+}
+
+function set_jobs () {
+	JOBS=""
+	if [ -n "`jobs`" ]; then
+		JOBS=${TXTCYN}'`echo \(\`jobs -r | wc -l | xargs\`/\`jobs -s | wc -l | xargs\`\)`'${TXTRST}
+	fi
+}
+
+# Set the full bash prompt.
+function set_bash_prompt () {
+  # Set the PROMPT_SYMBOL variable. We do this first so we don't lose the
+  # return value of the last command.
+  #set_prompt_symbol $?
+  set_status $?
+
+  # Set the PYTHON_VIRTUALENV variable.
+  set_virtualenv
+
+  set_jobs
+
+  # Set the BRANCH variable.
+  if is_git_repository ; then
+    set_git_branch
+  else
+    BRANCH=''
+  fi
+
+  # Set the bash prompt variable.
+  PS1="
+${PYTHON_VIRTUALENV}${STATUS}${JOBS}${SEP_L}${USERNAME}${SEP_C}${SERVERNAME} ${CURRPATH}${SEP_R} ${BRANCH}
+${PROMPT_SYMBOL} "
+}
+
+# Tell bash to execute this function just before displaying its prompt.
+PROMPT_COMMAND=set_bash_prompt
+
+EDITOR=vim
+LESS='--ignore-case --hilite-search -R --chop-long-lines'
+export EDITOR LESS

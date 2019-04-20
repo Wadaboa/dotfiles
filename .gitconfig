@@ -1,0 +1,29 @@
+[user]
+	name = Alessio Falai
+	email = falai.alessio@gmail.com
+	
+[color]
+	status = auto
+	diff = auto
+	branch = auto
+
+[push]
+	default = matching
+
+[alias]
+	lg1 = log --graph --abbrev-commit --decorate --date=short --format=format:'%C(bold red)%h%C(reset): %C(white)%s%C(reset) %C(dim white)' --all
+	lg2 = log --graph --abbrev-commit --decorate --date=short --format=format:'%C(bold red)%h%C(reset): %C(bold green)%ad %C(white)%s%C(reset) %C(dim white)- %C(reset) %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	lg = !"git lg1"
+
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = nano
+
+[credential]
+	helper = osxkeychain
