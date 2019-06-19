@@ -29,6 +29,7 @@ alias python='python3'
 alias cat='bat'
 alias top='htop'
 alias q='exit'
+alias git='LANG=en_GB git'
 
 # Other utilities
 zipf () { zip -r "$1".zip "$1" ; } # zipf: To create a ZIP archive of a folder
