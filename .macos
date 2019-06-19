@@ -320,6 +320,9 @@ defaults write com.apple.dock autohide -bool true
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
 
+# Don’t show recent applications in Dock
+defaults write com.apple.dock show-recents -bool false
+
 # Set dock position
 # Modes: "left", "right", "bottom"
 defaults write com.apple.Dock orientation -string "left"
@@ -492,7 +495,7 @@ defaults write com.apple.terminal SecureKeyboardEntry -bool true
 # Disable the annoying line marks
 defaults write com.apple.Terminal ShowLineMarks -int 0
 
-# Install the Solarized Dark theme for iTerm
+# Install the material design theme for iTerm
 open "${HOME}/init/material-design-colors.itermcolors"
 
 # Don’t display the annoying prompt when quitting iTerm
