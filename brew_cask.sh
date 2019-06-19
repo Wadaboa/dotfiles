@@ -2,11 +2,8 @@
 # Install apps with Homebrew cask
 #
 
-# Upgrade Homebrew and already-installed formulae
-brew update && brew upgrade
-
-# Install Homebrew cask
-brew install caskroom/cask/brew-cask
+# Upgrade Homebrew and maintain cask
+brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
 
 # Daily
 brew cask install spark
