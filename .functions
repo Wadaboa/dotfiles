@@ -1,0 +1,74 @@
+#
+# Useful shell functions and aliases
+#
+
+# Enhanced cd
+alias cd..='cd ../' # cd..: Go back 1 directory level (for fast typers)
+alias ..='cd ../' # ..: Go back 1 directory level
+alias ...='cd ../../' # ...: Go back 2 directory levels
+alias .3='cd ../../../' # .3: Go back 3 directory levels
+alias .4='cd ../../../../' # .4: Go back 4 directory levels
+alias .5='cd ../../../../../' # .5: Go back 5 directory levels
+alias .6='cd ../../../../../../' # .6: Go back 6 directory levels
+alias ~="cd ~" # ~: Go Home
+
+# Enhanced find
+alias qfind="find . -name " # qfind: Quickly search for file
+ff () { /usr/bin/find . -name "$@" ; } # ff: Find file under the current directory
+ffs () { /usr/bin/find . -name "$@"'*' ; } # ffs: Find file whose name starts with a given string
+ffe () { /usr/bin/find . -name '*'"$@" ; } # ffe: Find file whose name ends with a given string
+
+# MacOS utils
+alias f='open -a Finder ./' # f: Opens current directory in MacOS Finder
+trash () { command mv "$@" ~/.Trash ; } # trash: Moves a file to the MacOS trash
+spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; } # spotlight: Search for a file using MacOS Spotlight's metadata
+
+# Other aliases
+alias pip='pip3.7'
+alias python='python3'
+alias cat='bat'
+alias top='htop'
+alias q='exit'
+
+# Other utilities
+zipf () { zip -r "$1".zip "$1" ; } # zipf: To create a ZIP archive of a folder
+alias numf='echo $(ls -1 | wc -l)' # numf: Count of non-hidden files in current dir
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend" # Lock the screen (when going AFK)
+
+# extract: Extract most know archives with one command
+extract () {
+	if [ -f $1 ] ; then
+		case $1 in
+			*.tar.bz2)   tar xjf $1     ;;
+			*.tar.gz)    tar xzf $1     ;;
+			*.bz2)       bunzip2 $1     ;;
+			*.rar)       unrar e $1     ;;
+			*.gz)        gunzip $1      ;;
+			*.tar)       tar xf $1      ;;
+			*.tbz2)      tar xjf $1     ;;
+			*.tgz)       tar xzf $1     ;;
+			*.zip)       unzip $1       ;;
+			*.Z)         uncompress $1  ;;
+			*.7z)        7z x $1        ;;
+			*)     echo "'$1' cannot be extracted via extract()" ;;
+			 esac
+	else
+		echo "'$1' is not a valid file"
+	fi
+}
+
+# Pretty man
+function man() {
+     env \
+         LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+         LESS_TERMCAP_md=$(printf "\e[1;36m") \
+         LESS_TERMCAP_me=$(printf "\e[0m") \
+         LESS_TERMCAP_se=$(printf "\e[0m") \
+         LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+         LESS_TERMCAP_ue=$(printf "\e[0m") \
+         LESS_TERMCAP_us=$(printf "\e[1;32m") \
+         PAGER="${commands[less]:-$PAGER}" \
+         _NROFF_U=1 \
+         PATH="$HOME/bin:$PATH" \
+             man "$@"
+}
