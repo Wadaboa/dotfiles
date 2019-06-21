@@ -2,9 +2,6 @@
 # Setup a new macOS machine
 #
 
-# Configure macOS settings
-source ./.macos
-
 # Install Xcode command-line tools
 # (It requires to already have Xcode installed from the Mac App Store)
 xcode-select --install
@@ -27,3 +24,6 @@ source ./brew.sh
 # Install Homebrew casks
 brew install caskroom/cask/brew-cask
 source ./brew_cask.sh
+
+# Configure macOS settings
+source ./.macos

@@ -13,9 +13,9 @@ while zsh uses `neofetch` as first login command.
 ## New setup
 If setting up a new mac, run `bootstrap.sh`, which installs Xcode 
 command-line tools and Homebrew and executes sequentially:
-1. `.macos`, to configure system and default apps settings
-2. `brew.sh`, to install command-line tools
-3. `brew_cask.sh`, to install main applications
+1. `brew.sh`, to install command-line tools
+2. `brew_cask.sh`, to install main applications
+3. `.macos`, to configure system and default apps settings
 
 **Note**: `bootstrap.sh` requires you to manually install `Xcode.app` from 
 the Mac App Store, before being called.
