@@ -5,8 +5,8 @@ My macOS dotfiles, with the ability to choose from two shells:
 
 Both shells use `.functions` file, where some useful functions and aliases
 are stored.\
-The `init` folder contains default `Visual Studio Code` settings and
-`iTerm2` color theme.\
+The `init` folder contains default `Visual Studio Code` and
+`iTerm2` settings.\
 `.hushlogin` is only used in bash shell to avoid last login information prompts,
 while zsh uses `neofetch` as first login command. 
 

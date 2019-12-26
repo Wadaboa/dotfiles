@@ -27,11 +27,11 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 # Load bash prompt
-if [ -f ~/.bash_prompt ]; then
-	. ~/.bash_prompt
+if [ -f ~/dotfiles/.bash_prompt ]; then
+	. ~/dotfiles/.bash_prompt
 fi
 
 # Load functions and aliases
-if [ -f ~/.functions ]; then
-	. ~/.functions
+if [ -f ~/dotfiles/.functions ]; then
+	. ~/dotfiles/.functions
 fi

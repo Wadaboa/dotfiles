@@ -24,7 +24,7 @@ trash () { command mv "$@" ~/.Trash ; } # trash: Moves a file to the MacOS trash
 spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; } # spotlight: Search for a file using MacOS Spotlight's metadata
 
 # Other aliases
-alias pip='pip3.7'
+alias pip='pip3'
 alias python='python3'
 alias cat='bat'
 alias top='htop'

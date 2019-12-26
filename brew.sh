@@ -45,6 +45,7 @@ brew install powerlevel9k
 brew install zsh-autosuggestions
 brew install zsh-completions
 brew install zsh-syntax-highlighting
+brew install zsh-history-substring-search
 brew install neofetch
 brew install z
 

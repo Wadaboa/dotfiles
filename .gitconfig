@@ -23,7 +23,7 @@
 	br=branch
 
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = ~/dotfiles/.gitignore
 	editor = nano
 
 [credential]

@@ -61,11 +61,7 @@ plugins=(
 	history 
 	history-substring-search 
 	last-working-dir 
-	compleat 
-	zsh-completions 
-	zsh-history-substring-search 
-	zsh-autosuggestions 
-	zsh-syntax-highlighting 
+	compleat
 	z
 )
 autoload -U compinit && compinit
@@ -74,6 +70,12 @@ source $ZSH/oh-my-zsh.sh
 # Bind up and down keys to backward search
 bindkey '\e[A' history-beginning-search-backward
 bindkey '\e[B' history-beginning-search-forward
+
+# Load system-wide plugins
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fpath=(/usr/local/share/zsh-completions $fpath)
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # Set ls and grep colors
 export CLICOLOR=1
@@ -85,6 +87,6 @@ source $(dirname $(gem which colorls))/tab_complete.sh
 alias ls='colorls --sd -t'
 
 # Load functions and aliases
-if [ -f ~/.functions ]; then
-	. ~/.functions
+if [ -f ~/dotfiles/.functions ]; then
+	. ~/dotfiles/.functions
 fi
