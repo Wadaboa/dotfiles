@@ -6,6 +6,9 @@
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 
+# Auto update homebrew every 24 hours
+export HOMEBREW_AUTO_UPDATE_SECS="86400"
+
 # Set terminal color mode
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
 	export TERM='xterm-256color'

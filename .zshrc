@@ -14,6 +14,9 @@ export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export PATH="$HOME/sbin:/usr/local/sbin:$PATH"
 export ZSH="$HOME/.oh-my-zsh"
 
+# Auto update homebrew every 24 hours
+export HOMEBREW_AUTO_UPDATE_SECS="86400"
+
 # ZSH options
 DEFAULT_USER='Jobs'
 HYPHEN_INSENSITIVE="true"
