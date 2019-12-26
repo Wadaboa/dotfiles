@@ -15,14 +15,19 @@ osascript <<EOD
   end tell
 EOD
 
+# Accept Xcode license
+sudo xcodebuild -license
+
 # Install Homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
 
 # Install Homebrew command-line utils
+chmod +x brew.sh
 source ./brew.sh
 
 # Install Homebrew casks
 brew install caskroom/cask/brew-cask
+chmod +x brew_cask.sh
 source ./brew_cask.sh
 
 # Configure macOS settings

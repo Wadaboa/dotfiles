@@ -9,14 +9,14 @@ brew update && brew upgrade
 brew install coreutils
 brew install moreutils
 brew install findutils
-brew install gnu-sed --with-default-names
+brew install gnu-sed
 
 # Install more recent versions of some OS X tools
-brew install wget --with-iri
-brew install vim --with-override-system-vi
-brew install homebrew/dupes/nano
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/openssh
+brew install wget
+brew install vim
+brew install nano
+brew install grep
+brew install openssh
 
 # Install docker tools
 brew install docker docker-compose docker-machine xhyve docker-machine-driver-xhyve
@@ -34,12 +34,13 @@ brew install blueutil
 brew install bat
 brew install htop
 brew install git
-brew install imagemagick --with-webp
-brew install ffmpeg --with-libvpx
+brew install imagemagick
+brew install ffmpeg
 brew install node
 
 # Install zsh shell and related utilities
 brew install zsh
+brew tap sambadevi/powerlevel9k
 brew install powerlevel9k
 brew install zsh-autosuggestions
 brew install zsh-completions

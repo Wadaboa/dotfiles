@@ -3,10 +3,9 @@
 #
 
 # Upgrade Homebrew and maintain cask
-brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
+brew update && brew cask upgrade && brew cleanup
 
 # Daily
-brew cask install spark
 brew cask install 1password
 brew cask install telegram
 brew cask install whatsapp
@@ -23,7 +22,7 @@ brew cask install virtualbox-extension-pack
 brew cask install visual-studio-code
 
 # Font
-brew tap caskroom/fonts 
+brew tap homebrew/cask-fonts 
 brew cask install font-fira-code
 brew cask install font-hack-nerd-font
 
