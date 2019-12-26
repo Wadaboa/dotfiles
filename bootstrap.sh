@@ -52,8 +52,11 @@ source ./brew_cask.sh
 # Install iTerm2 preferences
 cp init/com.googlecode.iterm2.plist ~/Library/Preferences/
 
+# Disable last login screen
+cp .hushlogin ~/.hushlogin
+
 # Install VSCode preferences
-cp init vscode-settings.json ~/Library/Application\ Support/Code/User/settings.json
+cp init/vscode-settings.json ~/Library/Application\ Support/Code/User/settings.json
 
 # Configure macOS settings
 source ./.macos
