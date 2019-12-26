@@ -38,6 +38,7 @@ brew cask install firefox
 brew cask install tor-browser
 
 # Other
+brew cask install nimble
 brew cask install keka
 brew cask install appcleaner
 brew cask install skype
