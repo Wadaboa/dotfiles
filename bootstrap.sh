@@ -32,17 +32,11 @@ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/theme
 # Install colorls
 sudo gem install colorls
 
-# Add .gitconfig, .zshrc, .bash_profile to ~
-cat > ~/.zshrc <<- "EOF"
-source ~/dotfiles/.zshrc
-EOF
-cat > ~/.bash_profile <<- "EOF"
-source ~/dotfiles/.bash_profile
-EOF
-cat > ~/.gitconfig <<- "EOF"
-[include]
-	path = ~/dotfiles/.gitconfig
-EOF
+# Add symbolic links to .gitconfig, .zshrc, .bash_profile and .hushlogin
+ln -s ~/dotfiles/.zshrc ~/.zshrc
+ln -s ~/dotfiles/.bash_profile ~/.bash_profile
+ln -s ~/dotfiles/.gitconfig ~/.gitconfig
+ln -s ~/dotfiles/.hushlogin ~/.hushlogin
 
 # Install Homebrew casks
 brew install caskroom/cask/brew-cask
@@ -50,13 +44,10 @@ chmod +x brew_cask.sh
 source ./brew_cask.sh
 
 # Install iTerm2 preferences
-cp init/com.googlecode.iterm2.plist ~/Library/Preferences/
-
-# Disable last login screen
-cp .hushlogin ~/.hushlogin
+ln -s ~/dotfiles/init/iterm2-preferences.plist ~/Library/Preferences/com.googlecode.iterm2.plist
 
 # Install VSCode preferences
-cp init/vscode-settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -s ~/dotfiles/init/vscode-settings.json ~/Library/Application\ Support/Code/User/settings.json
 
 # Configure macOS settings
 source ./.macos
