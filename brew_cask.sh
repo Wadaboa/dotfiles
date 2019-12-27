@@ -9,6 +9,7 @@ brew update && brew cask upgrade && brew cleanup
 brew cask install 1password
 brew cask install telegram
 brew cask install whatsapp
+brew cask install hyperdock
 
 # Dev
 brew cask install java
@@ -20,6 +21,9 @@ brew cask install mamp
 brew cask install virtualbox
 brew cask install virtualbox-extension-pack
 brew cask install visual-studio-code
+brew cask install dash
+brew cask install postman
+brew cask install cyberduck
 
 # Font
 brew tap homebrew/cask-fonts 
@@ -43,3 +47,4 @@ brew cask install keka
 brew cask install appcleaner
 brew cask install skype
 brew cask install slack
+brew cask install grammarly

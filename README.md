@@ -7,8 +7,7 @@ Both shells use `.functions` file, where some useful functions and aliases
 are stored.\
 The `init` folder contains default `Visual Studio Code` and
 `iTerm2` settings.\
-`.hushlogin` is only used in bash shell to avoid last login information prompts,
-while zsh uses `neofetch` as first login command. 
+`.hushlogin` is only used in shells to avoid last login information prompts.
 
 ## New setup
 If setting up a new mac, run `bootstrap.sh`, which installs Xcode 
@@ -17,5 +16,5 @@ command-line tools and Homebrew and executes sequentially:
 2. `brew_cask.sh`, to install main applications
 3. `.macos`, to configure system and default apps settings
 
-**Note**: `bootstrap.sh` requires you to manually install `Xcode.app` from 
-the Mac App Store, before being called.
+**Note**: `bootstrap.sh` requires you to login to the 
+Mac App Store and manually install `Xcode.app`, before being called.

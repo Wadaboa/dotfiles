@@ -23,8 +23,12 @@ brew install docker docker-compose docker-machine xhyve docker-machine-driver-xh
 sudo chown root:wheel $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
 sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
 
-# Install other useful binaries
+# Install dev tools
 brew install python
+brew install mysql
+brew install php
+
+# Install other useful binaries
 brew install tesseract
 brew install opencv
 brew install qt
@@ -52,6 +56,11 @@ brew install z
 # Install bash 4 and related utilities
 brew install bash
 brew install bash-completion
+
+# Install Mac App Store apps
+brew install mas
+mas lucky spark
+mas lucky amphetamine
 
 # Remove outdated versions from the cellar
 brew cleanup
