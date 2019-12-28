@@ -195,6 +195,13 @@ sudo pmset -c sleep 0
 # Never go into computer sleep mode while charging
 sudo systemsetup -setcomputersleep Off > /dev/null
 
+# Disable open lid to turn on the computer and disable startup chime
+sudo nvram AutoBoot=%00
+sudo nvram BootAudio=%00
+
+# Disable (re)connect charger to turn on the computer
+sudo pmset -a acwake 0
+
 # Hibernation mode
 # 0: Disable hibernation (speeds up entering sleep mode)
 # 3: Copy RAM to disk so the system state can still be restored in case of a
