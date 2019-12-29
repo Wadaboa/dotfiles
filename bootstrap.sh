@@ -25,6 +25,9 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 chmod +x brew.sh
 source ./brew.sh
 
+# Update TeX packages
+tlmgr update --self --all --reinstall-forcibly-removed
+
 # Install oh-my-zsh and powerlevel9k
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k

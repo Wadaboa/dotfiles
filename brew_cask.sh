@@ -28,6 +28,8 @@ brew cask install cyberduck
 # Font
 brew tap homebrew/cask-fonts 
 brew cask install font-fira-code
+brew cask install font-fira-sans
+brew cask install font-fira-mono
 brew cask install font-hack-nerd-font
 
 # Fun
