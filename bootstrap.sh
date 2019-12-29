@@ -52,5 +52,10 @@ ln -s ~/dotfiles/init/iterm2-preferences.plist ~/Library/Preferences/com.googlec
 # Install VSCode preferences
 ln -s ~/dotfiles/init/vscode-settings.json ~/Library/Application\ Support/Code/User/settings.json
 
+# Add the ability to sudo with touch id
+sudo chmod 666 /etc/pam.d/sudo
+sudo ex -s -c '2i|auth       sufficient     pam_tid.so' -c x /etc/pam.d/sudo
+sudo chmod 444 /etc/pam.d/sudo
+
 # Configure macOS settings
 source ./.macos
