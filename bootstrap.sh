@@ -28,6 +28,9 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 chmod +x brew.sh
 source ./brew.sh
 
+# Disable Homebrew analytics
+brew analytics off
+
 # Update TeX packages
 tlmgr update --self --all --reinstall-forcibly-removed
 
