@@ -13,8 +13,9 @@ The `init` folder contains default `Visual Studio Code` and
 If setting up a new mac, run `bootstrap.sh`, which installs Xcode 
 command-line tools and Homebrew and executes sequentially:
 1. `brew.sh`, to install command-line tools
-2. `brew_cask.sh`, to install main applications
-3. `.macos`, to configure system and default apps settings
+2. `python.sh`, to install useful Python pip packages 
+3. `brew_cask.sh`, to install main applications
+4. `.macos`, to configure system and default apps settings
 
 **Note**: `bootstrap.sh` requires you to login to the 
 Mac App Store and manually install `Xcode.app`, before being called.
