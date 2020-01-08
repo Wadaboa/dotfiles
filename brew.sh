@@ -41,6 +41,7 @@ brew install git
 brew install imagemagick
 brew install ffmpeg
 brew install node
+brew install rclone
 
 # Install zsh shell and related utilities
 brew install zsh

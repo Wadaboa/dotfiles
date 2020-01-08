@@ -18,6 +18,9 @@ EOD
 # Accept Xcode license
 sudo xcodebuild -license
 
+# Install Automator services
+cp -R ~/dotfiles/init/services/*.workflow ~/Library/Services/
+
 # Install Homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
 
