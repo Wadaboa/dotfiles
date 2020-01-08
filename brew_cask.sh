@@ -10,6 +10,7 @@ brew cask install 1password
 brew cask install telegram
 brew cask install whatsapp
 brew cask install hyperdock
+brew cask install megasync
 
 # Dev
 brew cask install java
