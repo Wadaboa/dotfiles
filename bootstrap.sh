@@ -31,6 +31,10 @@ source ./brew.sh
 # Disable Homebrew analytics
 brew analytics off
 
+# Install Python packages
+chmod +x python.sh
+sudo -H ./python.sh
+
 # Update TeX packages
 tlmgr update --self --all --reinstall-forcibly-removed
 
