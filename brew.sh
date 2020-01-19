@@ -27,6 +27,8 @@ sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machi
 brew install python
 brew install mysql
 brew install php
+brew install gnu-prolog
+brew install swi-prolog
 
 # Install other useful binaries
 brew install tesseract
