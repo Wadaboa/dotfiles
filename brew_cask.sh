@@ -32,6 +32,8 @@ brew cask install font-fira-code
 brew cask install font-fira-sans
 brew cask install font-fira-mono
 brew cask install font-hack-nerd-font
+brew cask install font-roboto
+brew cask install font-fontawesome
 
 # Fun
 brew cask install transmission
