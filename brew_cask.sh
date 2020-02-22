@@ -19,6 +19,7 @@ brew cask install iterm2
 brew cask install sublime-text
 brew cask install mactex-no-gui
 brew cask install mamp
+brew cask install sequel-pro
 brew cask install virtualbox
 brew cask install virtualbox-extension-pack
 brew cask install visual-studio-code
