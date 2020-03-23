@@ -42,14 +42,15 @@ tlmgr update --self --all --reinstall-forcibly-removed
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
-# Install colorls
+# Install colorls to Homebrew ruby
+export PATH="/usr/local/opt/ruby/bin:$PATH"
 sudo gem install colorls
 
 # Add symbolic links to .gitconfig, .zshrc, .bash_profile and .hushlogin
-ln -s ~/dotfiles/.zshrc ~/.zshrc
+ln -s ~/dotfiles/.zshrc ~/.zshrc && source ~/.zshrc
 ln -s ~/dotfiles/.bash_profile ~/.bash_profile
-ln -s ~/dotfiles/.gitconfig ~/.gitconfig
-ln -s ~/dotfiles/.hushlogin ~/.hushlogin
+ln -s ~/dotfiles/.gitconfig ~/.gitconfig && source ~/.gitconfig
+ln -s ~/dotfiles/.hushlogin ~/.hushlogin && source ~/.hushlogin
 
 # Install Homebrew casks
 brew install caskroom/cask/brew-cask

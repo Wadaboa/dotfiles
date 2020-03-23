@@ -16,6 +16,8 @@
 	"editor.insertSpaces": false,
 	"editor.suggestSelection": "first",
 
+	"window.zoomLevel": 0,
+
 	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 
 	"explorer.confirmDragAndDrop": false,

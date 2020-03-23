@@ -31,6 +31,9 @@ alias top='htop'
 alias q='exit'
 alias git='LANG=en_GB git'
 
+# Localization
+export LC_ALL=en_US.UTF-8
+
 # Other utilities
 zipf () { zip -r "$1".zip "$1" ; } # zipf: To create a ZIP archive of a folder
 alias numf='echo $(ls -1 | wc -l)' # numf: Count of non-hidden files in current dir

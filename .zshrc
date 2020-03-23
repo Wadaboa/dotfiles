@@ -12,6 +12,7 @@ neofetch
 export TERM='xterm-256color'
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export PATH="$HOME/sbin:/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
 export ZSH="$HOME/.oh-my-zsh"
 
 # Auto update homebrew every 24 hours
@@ -93,3 +94,6 @@ alias ls='colorls --sd -t'
 if [ -f ~/dotfiles/.functions ]; then
 	. ~/dotfiles/.functions
 fi
+
+# added by travis gem
+[ -f /Users/jobs/.travis/travis.sh ] && source /Users/jobs/.travis/travis.sh
