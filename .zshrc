@@ -62,8 +62,7 @@ plugins=(
 	osx 
 	sudo 
 	sublime 
-	history 
-	history-substring-search 
+	history
 	last-working-dir 
 	compleat
 	z
@@ -88,12 +87,12 @@ export GREP_COLOR="1;32"
 
 # Load colorls
 source $(dirname $(gem which colorls))/tab_complete.sh
-alias ls='colorls --sd -t'
+alias ls='colorls -A --sd -t'
 
 # Load functions and aliases
 if [ -f ~/dotfiles/.functions ]; then
 	. ~/dotfiles/.functions
 fi
 
-# added by travis gem
-[ -f /Users/jobs/.travis/travis.sh ] && source /Users/jobs/.travis/travis.sh
+# Source Travis CI config 
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh

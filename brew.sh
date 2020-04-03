@@ -30,6 +30,7 @@ brew install mysql
 brew install php
 brew install gnu-prolog
 brew install swi-prolog
+brew install scala
 
 # Install other useful binaries
 brew install tesseract
@@ -45,6 +46,7 @@ brew install imagemagick
 brew install ffmpeg
 brew install node
 brew install rclone
+brew install pandoc
 
 # Install zsh shell and related utilities
 brew install zsh
