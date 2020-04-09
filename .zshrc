@@ -96,3 +96,6 @@ fi
 
 # Source Travis CI config 
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
+
+# Load pyenv
+eval "$(pyenv init -)"

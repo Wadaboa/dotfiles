@@ -25,6 +25,7 @@ sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machi
 
 # Install dev tools
 brew install python
+brew install pyenv
 brew install ruby
 brew install mysql
 brew install php
