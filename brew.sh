@@ -32,6 +32,7 @@ brew install php
 brew install gnu-prolog
 brew install swi-prolog
 brew install scala
+brew install minizinc
 
 # Install other useful binaries
 brew install tesseract

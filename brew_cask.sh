@@ -25,6 +25,8 @@ brew cask install visual-studio-code
 brew cask install dash
 brew cask install postman
 brew cask install cyberduck
+brew cask install poedit
+brew cask install minizincide
 
 # Font
 brew tap homebrew/cask-fonts 
