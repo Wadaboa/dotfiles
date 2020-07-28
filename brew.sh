@@ -29,10 +29,14 @@ brew install pyenv
 brew install ruby
 brew install mysql
 brew install php
+brew install jenv
+brew install sbt
+brew install scala
+brew install apache-spark
 brew install gnu-prolog
 brew install swi-prolog
-brew install scala
 brew install minizinc
+brew install git-lfs
 
 # Install other useful binaries
 brew install tesseract

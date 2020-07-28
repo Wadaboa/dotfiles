@@ -12,7 +12,9 @@ brew cask install whatsapp
 brew cask install megasync
 
 # Dev
-brew cask install java
+brew tap AdoptOpenJDK/openjdk
+brew cask install adoptopenjdk14
+brew cask install adoptopenjdk8
 brew cask install eclipse-java
 brew cask install iterm2
 brew cask install sublime-text
@@ -59,3 +61,4 @@ brew cask install grammarly
 brew cask install teamviewer
 brew cask install evernote
 brew cask install flixtools
+brew cask install drawio

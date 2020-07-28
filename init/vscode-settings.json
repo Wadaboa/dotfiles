@@ -37,6 +37,9 @@
 	"python.linting.pylintUseMinimalCheckers": false,
 	"python.linting.lintOnSave": true,
 	"python.jediEnabled": false,
+	"python.dataScience.askForKernelRestart": false,
+	"python.dataScience.textOutputLimit": 0,
+	"python.languageServer": "Microsoft",
 
 	"markdown.extension.toc.githubCompatibility": true,
 
@@ -72,5 +75,10 @@
 				"%DOC%"
 			]
 		}
-	]
+	],
+
+	"prolog.executablePath": "/usr/local/bin/swipl",
+
+	"metals.javaHome": "/usr/local/opt/jenv/versions/1.8",
+	"python.showStartPage": false
 }
