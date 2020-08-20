@@ -13,6 +13,7 @@ export TERM='xterm-256color'
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export PATH="$HOME/sbin:/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 export ZSH="$HOME/.oh-my-zsh"
 
 # Auto update homebrew every 24 hours
@@ -103,3 +104,6 @@ eval "$(pyenv init -)"
 # Load jenv
 export JENV_ROOT=/usr/local/opt/jenv
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+
+# Python multiprocessing fix
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES

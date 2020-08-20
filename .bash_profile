@@ -6,6 +6,7 @@
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
+export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 
 # Auto update homebrew every 24 hours
 export HOMEBREW_AUTO_UPDATE_SECS="86400"
@@ -39,3 +40,6 @@ fi
 if [ -f ~/dotfiles/.functions ]; then
 	. ~/dotfiles/.functions
 fi
+
+# Python multiprocessing fix
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES

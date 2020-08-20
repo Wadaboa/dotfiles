@@ -80,5 +80,6 @@
 	"prolog.executablePath": "/usr/local/bin/swipl",
 
 	"metals.javaHome": "/usr/local/opt/jenv/versions/1.8",
-	"python.showStartPage": false
+	"python.showStartPage": false,
+	"python.dataScience.alwaysTrustNotebooks": true
 }
