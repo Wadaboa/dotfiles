@@ -69,6 +69,11 @@ brew install z
 brew install bash
 brew install bash-completion
 
+# Install yabai and related tools
+brew install gotop
+brew install koekeishiya/formulae/yabai
+brew install koekeishiya/formulae/skhd
+
 # Install Mac App Store apps
 brew install mas
 mas lucky spark

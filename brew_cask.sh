@@ -10,6 +10,7 @@ brew cask install 1password
 brew cask install telegram
 brew cask install whatsapp
 brew cask install megasync
+brew cask install notion
 
 # Dev
 brew tap AdoptOpenJDK/openjdk
@@ -62,3 +63,4 @@ brew cask install teamviewer
 brew cask install evernote
 brew cask install flixtools
 brew cask install drawio
+brew cask install alt-tab

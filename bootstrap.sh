@@ -46,11 +46,17 @@ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/theme
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 sudo gem install colorls
 
-# Add symbolic links to .gitconfig, .zshrc, .bash_profile and .hushlogin
+# Add symbolic links to .gitconfig, .zshrc, .bash_profile, .hushlogin, .yabai and .skhd
 ln -s ~/dotfiles/.zshrc ~/.zshrc && source ~/.zshrc
 ln -s ~/dotfiles/.bash_profile ~/.bash_profile
 ln -s ~/dotfiles/.gitconfig ~/.gitconfig && source ~/.gitconfig
 ln -s ~/dotfiles/.hushlogin ~/.hushlogin && source ~/.hushlogin
+ln -s ~/dotfiles/.yabairc ~/.yabairc && source ~/.yabairc
+ln -s ~/dotfiles/.skhdrc ~/.skhdrc && source ~/.skhdrc
+
+# Start yabai and skhd
+brew services start yabai
+brew services start skhd
 
 # Install Homebrew casks
 brew install caskroom/cask/brew-cask
