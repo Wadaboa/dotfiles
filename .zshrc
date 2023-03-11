@@ -13,6 +13,7 @@ export TERM='xterm-256color'
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export PATH="$HOME/sbin:/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="$(ruby -e 'puts Gem.bindir'):$PATH"
 export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -60,7 +61,7 @@ plugins=(
 	git 
 	git-extras 
 	docker
-	osx 
+	macos 
 	sudo 
 	sublime 
 	history
@@ -102,8 +103,17 @@ fi
 eval "$(pyenv init -)"
 
 # Load jenv
+export PATH="$HOME/.jenv/bin:$PATH"
 export JENV_ROOT=/usr/local/opt/jenv
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
 # Python multiprocessing fix
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# Load RVM
+if [[ -s $HOME/.rvm/scripts/rvm ]]; then
+  source $HOME/.rvm/scripts/rvm;
+fi
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

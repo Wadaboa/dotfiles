@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
 
+# Scripting addition
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
 # Global settings
 yabai -m config mouse_follows_focus off
 yabai -m config focus_follows_mouse off
@@ -29,6 +33,9 @@ yabai -m config --space 1 layout float
 
 # Unmanaged apps
 yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^Python$" manage=off
+yabai -m rule --add app="licecap" manage=off
+yabai -m rule --add app="^Reverso$" manage=off
 
 # Status bar
 yabai -m config external_bar all:0:0

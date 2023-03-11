@@ -3,7 +3,7 @@
 ##############################################
 # Open terminal, VSCode, and Chrome with shortcuts
 cmd - return : open -n -a iTerm
-cmd + shift - return : open -n -a "Visual Studio Code"
+cmd + shift - return : open ~
 alt - return : open -n -a "Google Chrome"
 
 
@@ -94,9 +94,6 @@ alt - t : yabai -m window --toggle float;\
 # Window split type
 alt - e : yabai -m window --toggle split
 
-# Sticky
-# alt - s : yabai -m window --toggle sticky
-
 
 ##############################################
 # Floating
@@ -110,3 +107,17 @@ shift + alt - left : yabai -m window --grid 1:2:0:0:1:1
 
 # Float right 50%
 shift + alt - right : yabai -m window --grid 1:2:1:0:1:1
+
+
+##############################################
+# Cycling
+##############################################
+
+# Stack windows
+cmd + alt - h : yabai -m window --stack west
+cmd + alt - j : yabai -m window --stack south
+cmd + alt - k : yabai -m window --stack north
+cmd + alt - l : yabai -m window --stack east
+
+# Focus forward
+alt - s : yabai -m window --focus stack.next || yabai -m window --focus stack.first

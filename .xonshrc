@@ -1,0 +1,57 @@
+# Xonsh settings
+$ALIAS_COMPLETIONS_OPTIONS_BY_DEFAULT = True
+$XONSH_COLOR_STYLE = 'material'
+$XONSH_DATETIME_FORMAT = '%d/%m/%Y %H:%M:%S'
+$XONSH_LOGIN = True
+$BOTTOM_TOOLBAR = ''
+$AUTO_CD = True
+$DOTGLOB = True
+$SHELL_TYPE = 'prompt-toolkit'
+$TITLE = '{user}@{hostname}{current_job: → {}}'
+$XONSH_STDERR_POSTFIX = '{BACKGROUND_RED}'
+$XONSH_STDERR_PREFIX = '{RESET}'
+$XONSH_AUTOPAIR = True
+$XONSH_HISTORY_BACKEND = 'sqlite'
+$HISTCONTROL = 'ignoredups'
+$MULTILINE_PROMPT = ' '
+$XONSH_SHOW_TRACEBACK = False
+$SUGGEST_COMMANDS = False
+
+# MacOS specific settings
+source-bash $(/usr/libexec/path_helper -s)
+source-bash --seterrprevcmd "" /etc/profile
+
+# Aliases
+aliases['-'] = 'cd -'
+aliases['..'] = 'cd ..'
+aliases['....'] = 'cd ../..'
+aliases['cp'] = 'rsync --progress --recursive --archive'
+aliases['history-search'] = """sqlite3 $XONSH_HISTORY_FILE @("SELECT inp FROM xonsh_history WHERE inp LIKE '%" + $arg0 + "%' AND inp NOT LIKE 'history-%' ORDER BY tsb DESC LIMIT 10");"""
+
+# Set enviroment variables
+$TERM = 'xterm-256color'
+$PATH.insert(0, 'usr/local/bin')
+$PATH.insert(0, 'usr/local/sbin')
+$PATH.append('$HOME/bin')
+$PATH.append('$HOME/sbin')
+$PATH.append('/usr/local/opt/grep/libexec/gnubin')
+$PATH.append('$HOME/.rvm/bin')
+$PATH.append('$HOME/.jenv/bin')
+$JENV_ROOT = '/usr/local/opt/jenv'
+
+# Auto update homebrew every 24 hours
+$HOMEBREW_AUTO_UPDATE_SECS = '86400'
+
+# Python multiprocessing fix
+$OBJC_DISABLE_INITIALIZE_FORK_SAFETY = 'YES'
+
+# Load pyenv and jenv
+pyenv init - > /tmp/pyenv
+source-bash /tmp/pyenv > /dev/null
+jenv init - > /tmp/jenv
+source-bash /tmp/jenv > /dev/null
+
+# Xontribs
+execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
+xontrib load @(['back2dir', 'cmd_done', 'jedi', 'clp', 'pipeliner', 'sh', 'xlsd', 'mod', 'mpl', 'gitinfo'])
+execx($(starship init xonsh))
